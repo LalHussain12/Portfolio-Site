@@ -1,12 +1,24 @@
+import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { ExternalLink, Github, FolderOpen } from "lucide-react";
+import { ExternalLink, Github, FolderOpen, Filter } from "lucide-react";
 import type { Project } from "@shared/schema";
 
+const categories = ["All", "E-commerce", "Corporate", "Portfolio", "Blog", "Real Estate"];
+
 export default function Portfolio() {
+  const [selectedCategory, setSelectedCategory] = useState("All");
   const { data: projects, isLoading } = useQuery<Project[]>({
     queryKey: ["/api/projects"],
+  });
+
+  const filteredProjects = projects?.filter(project => {
+    if (selectedCategory === "All") return true;
+    return project.technologies.some(tech => 
+      tech.toLowerCase().includes(selectedCategory.toLowerCase()) ||
+      project.title.toLowerCase().includes(selectedCategory.toLowerCase())
+    );
   });
 
   if (isLoading) {
@@ -48,9 +60,27 @@ export default function Portfolio() {
             A showcase of my latest work and successful client collaborations
           </p>
         </div>
+
+        {/* Category Filter */}
+        <div className="flex flex-wrap justify-center gap-4 mb-12" data-aos="fade-up">
+          {categories.map((category) => (
+            <Button
+              key={category}
+              variant={selectedCategory === category ? "default" : "outline"}
+              onClick={() => setSelectedCategory(category)}
+              className={`${selectedCategory === category 
+                ? "bg-primary text-primary-foreground" 
+                : "border-primary/20 text-muted-foreground hover:text-primary hover:border-primary"
+              }`}
+            >
+              <Filter className="mr-2 h-4 w-4" />
+              {category}
+            </Button>
+          ))}
+        </div>
         
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects?.map((project, index) => (
+          {filteredProjects?.map((project, index) => (
             <div 
               key={project.id}
               className="bg-muted/50 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2" 

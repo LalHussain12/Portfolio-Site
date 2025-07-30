@@ -45,34 +45,40 @@ export default function Header() {
           </div>
           
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-6">
             <button 
               onClick={() => scrollToSection("home")}
-              className="text-foreground/80 hover:text-primary transition-colors"
+              className="text-foreground/80 hover:text-primary transition-colors text-sm"
             >
               Home
             </button>
             <button 
               onClick={() => scrollToSection("about")}
-              className="text-foreground/80 hover:text-primary transition-colors"
+              className="text-foreground/80 hover:text-primary transition-colors text-sm"
             >
               About
             </button>
             <button 
               onClick={() => scrollToSection("services")}
-              className="text-foreground/80 hover:text-primary transition-colors"
+              className="text-foreground/80 hover:text-primary transition-colors text-sm"
             >
               Services
             </button>
             <button 
               onClick={() => scrollToSection("portfolio")}
-              className="text-foreground/80 hover:text-primary transition-colors"
+              className="text-foreground/80 hover:text-primary transition-colors text-sm"
             >
               Portfolio
             </button>
             <button 
+              onClick={() => scrollToSection("pricing")}
+              className="text-foreground/80 hover:text-primary transition-colors text-sm"
+            >
+              Pricing
+            </button>
+            <button 
               onClick={() => scrollToSection("contact")}
-              className="text-foreground/80 hover:text-primary transition-colors"
+              className="text-foreground/80 hover:text-primary transition-colors text-sm"
             >
               Contact
             </button>
@@ -136,6 +142,12 @@ export default function Header() {
                 className="text-left text-foreground/80 hover:text-primary transition-colors"
               >
                 Portfolio
+              </button>
+              <button 
+                onClick={() => scrollToSection("pricing")}
+                className="text-left text-foreground/80 hover:text-primary transition-colors"
+              >
+                Pricing
               </button>
               <button 
                 onClick={() => scrollToSection("contact")}

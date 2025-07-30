@@ -37,6 +37,11 @@ export default function About() {
                 the latest web technologies. Whether you need a custom theme, e-commerce solution, or 
                 performance optimization, I'm here to help bring your vision to life.
               </p>
+              <p className="text-muted-foreground leading-relaxed">
+                My mission is to empower businesses with robust, scalable WordPress solutions that grow with their success. 
+                I believe in building long-term partnerships with my clients, providing ongoing support and strategic guidance 
+                to ensure their digital presence continues to evolve and thrive in an ever-changing online landscape.
+              </p>
             </div>
             
             {/* Skills */}

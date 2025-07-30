@@ -77,8 +77,8 @@ export default function Contact() {
             </div>
             
             {/* Contact Methods */}
-            <div className="space-y-6">
-              <div className="flex items-center space-x-4">
+            <div className="grid gap-6">
+              <div className="flex items-center space-x-4 p-4 bg-gradient-to-r from-primary/5 to-accent/5 rounded-xl">
                 <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
                   <Mail className="text-primary text-xl h-5 w-5" />
                 </div>
@@ -90,50 +90,63 @@ export default function Contact() {
                 </div>
               </div>
               
-              <div className="flex items-center space-x-4">
-                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                  <SiWhatsapp className="text-primary text-xl" />
+              <div className="flex items-center space-x-4 p-4 bg-gradient-to-r from-green-500/5 to-green-600/5 rounded-xl">
+                <div className="w-12 h-12 bg-green-500/10 rounded-lg flex items-center justify-center">
+                  <SiWhatsapp className="text-green-600 text-xl" />
                 </div>
                 <div>
                   <h4 className="font-semibold text-foreground">WhatsApp</h4>
-                  <a href="https://wa.me/1234567890" className="text-muted-foreground hover:text-primary transition-colors">
+                  <a href="https://wa.me/1234567890" className="text-muted-foreground hover:text-green-600 transition-colors">
                     +1 (234) 567-8900
                   </a>
                 </div>
               </div>
               
-              <div className="flex items-center space-x-4">
-                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                  <SiLinkedin className="text-primary text-xl" />
+              <div className="flex items-center space-x-4 p-4 bg-gradient-to-r from-blue-500/5 to-blue-600/5 rounded-xl">
+                <div className="w-12 h-12 bg-blue-500/10 rounded-lg flex items-center justify-center">
+                  <SiLinkedin className="text-blue-600 text-xl" />
                 </div>
                 <div>
                   <h4 className="font-semibold text-foreground">LinkedIn</h4>
-                  <a href="https://linkedin.com/in/lalhussain" className="text-muted-foreground hover:text-primary transition-colors">
+                  <a href="https://linkedin.com/in/lalhussain" className="text-muted-foreground hover:text-blue-600 transition-colors">
                     linkedin.com/in/lalhussain
                   </a>
                 </div>
               </div>
               
-              <div className="flex items-center space-x-4">
-                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                  <MapPin className="text-primary text-xl h-5 w-5" />
+              <div className="flex items-center space-x-4 p-4 bg-gradient-to-r from-purple-500/5 to-purple-600/5 rounded-xl">
+                <div className="w-12 h-12 bg-purple-500/10 rounded-lg flex items-center justify-center">
+                  <MapPin className="text-purple-600 text-xl h-5 w-5" />
                 </div>
                 <div>
                   <h4 className="font-semibold text-foreground">Location</h4>
                   <span className="text-muted-foreground">
-                    San Francisco, CA
+                    San Francisco, CA (Available Globally)
                   </span>
                 </div>
               </div>
             </div>
             
-            {/* Response Time */}
-            <div className="bg-accent/10 p-6 rounded-xl">
-              <div className="flex items-center space-x-3">
-                <Clock className="text-accent text-xl h-5 w-5" />
+            {/* Response Time & Availability */}
+            <div className="bg-gradient-to-br from-accent/10 to-accent/5 p-6 rounded-xl border border-accent/20">
+              <div className="flex items-start space-x-3">
+                <Clock className="text-accent text-xl h-5 w-5 mt-1" />
                 <div>
-                  <h4 className="font-semibold text-foreground">Quick Response</h4>
-                  <p className="text-muted-foreground">I typically respond within 24 hours</p>
+                  <h4 className="font-semibold text-foreground mb-2">Quick Response Guarantee</h4>
+                  <div className="space-y-2 text-sm text-muted-foreground">
+                    <div className="flex items-center">
+                      <div className="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
+                      <span>Email: Within 24 hours</span>
+                    </div>
+                    <div className="flex items-center">
+                      <div className="w-2 h-2 bg-blue-500 rounded-full mr-2"></div>
+                      <span>WhatsApp: Within 2-4 hours</span>
+                    </div>
+                    <div className="flex items-center">
+                      <div className="w-2 h-2 bg-purple-500 rounded-full mr-2"></div>
+                      <span>LinkedIn: Within 4-8 hours</span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>

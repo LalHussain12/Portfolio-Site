@@ -23,11 +23,12 @@ export default function Hero() {
                 Hi, I'm <span className="gradient-text">Lal Hussain</span>
               </h1>
               <h2 className="text-2xl lg:text-3xl font-semibold text-muted-foreground">
-                WordPress Developer
+                Expert WordPress Developer
               </h2>
               <p className="text-xl text-muted-foreground max-w-2xl">
                 I build fast, SEO-friendly WordPress sites that convert visitors into customers. 
-                Let's bring your digital vision to life with clean code and stunning design.
+                Specializing in custom themes, e-commerce solutions, and performance optimization 
+                to help your business thrive online.
               </p>
             </div>
             
