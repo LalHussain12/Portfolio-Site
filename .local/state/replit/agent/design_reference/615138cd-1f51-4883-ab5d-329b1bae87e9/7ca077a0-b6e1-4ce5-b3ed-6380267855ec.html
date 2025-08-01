@@ -1,0 +1,1243 @@
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lal Hussain - WordPress Developer Portfolio</title>
+    <meta name="description" content="Experienced WordPress Developer specializing in custom themes, WooCommerce, and performance optimization. Let's build your next project together.">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3B82F6',
+                        secondary: '#1F2937',
+                        accent: '#10B981',
+                    },
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 0.6s ease-out',
+                        'fade-in': 'fadeIn 0.6s ease-out',
+                        'pulse-soft': 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    }
+                }
+            },
+            darkMode: 'class'
+        };
+    </script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #3B82F6, #10B981);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero-pattern {
+            background-image: radial-gradient(circle at 25px 25px, rgba(59, 130, 246, 0.1) 2px, transparent 0),
+                            radial-gradient(circle at 75px 75px, rgba(16, 185, 129, 0.1) 2px, transparent 0);
+            background-size: 100px 100px;
+        }
+        
+        .glass-effect {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .project-card:hover {
+            transform: translateY(-8px);
+            transition: all 0.3s ease;
+        }
+        
+        .service-card:hover {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(16, 185, 129, 0.1));
+        }
+        
+        /* Dark mode styles */
+        .dark .glass-effect {
+            background: rgba(31, 41, 55, 0.8);
+            border: 1px solid rgba(75, 85, 99, 0.3);
+        }
+        
+        .dark .hero-pattern {
+            background-image: radial-gradient(circle at 25px 25px, rgba(59, 130, 246, 0.15) 2px, transparent 0),
+                            radial-gradient(circle at 75px 75px, rgba(16, 185, 129, 0.15) 2px, transparent 0);
+        }
+    </style>
+</head>
+<body class="font-inter bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+
+    <!-- @COMPONENT: Header [sticky navigation with logo and dark mode toggle] -->
+    <header class="fixed top-0 left-0 right-0 z-50 glass-effect backdrop-blur-md">
+        <nav class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <div class="text-2xl font-bold gradient-text">
+                    LH.dev
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="text-gray-700 dark:text-gray-300 hover:text-primary transition-colors">Home</a>
+                    <a href="#about" class="text-gray-700 dark:text-gray-300 hover:text-primary transition-colors">About</a>
+                    <a href="#services" class="text-gray-700 dark:text-gray-300 hover:text-primary transition-colors">Services</a>
+                    <a href="#portfolio" class="text-gray-700 dark:text-gray-300 hover:text-primary transition-colors">Portfolio</a>
+                    <a href="#contact" class="text-gray-700 dark:text-gray-300 hover:text-primary transition-colors">Contact</a>
+                </div>
+                
+                <!-- Dark Mode Toggle & Mobile Menu -->
+                <div class="flex items-center space-x-4">
+                    <button id="darkModeToggle" class="p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+                        <i class="fas fa-moon dark:hidden text-gray-700"></i>
+                        <i class="fas fa-sun hidden dark:block text-yellow-400"></i>
+                    </button>
+                    
+                    <!-- Mobile Menu Button -->
+                    <button id="mobileMenuToggle" class="md:hidden p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+                        <i class="fas fa-bars text-gray-700 dark:text-gray-300"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile Navigation Menu -->
+            <div id="mobileMenu" class="hidden md:hidden mt-4 pb-4 border-t border-gray-200 dark:border-gray-700">
+                <div class="flex flex-col space-y-4 pt-4">
+                    <a href="#home" class="text-gray-700 dark:text-gray-300 hover:text-primary transition-colors">Home</a>
+                    <a href="#about" class="text-gray-700 dark:text-gray-300 hover:text-primary transition-colors">About</a>
+                    <a href="#services" class="text-gray-700 dark:text-gray-300 hover:text-primary transition-colors">Services</a>
+                    <a href="#portfolio" class="text-gray-700 dark:text-gray-300 hover:text-primary transition-colors">Portfolio</a>
+                    <a href="#contact" class="text-gray-700 dark:text-gray-300 hover:text-primary transition-colors">Contact</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- @END_COMPONENT: Header -->
+
+    <!-- @COMPONENT: Hero Section [main introduction and CTA] -->
+    <section id="home" class="min-h-screen flex items-center hero-pattern pt-20">
+        <div class="container mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-8" data-aos="fade-right">
+                    <div class="space-y-4">
+                        <h1 class="text-5xl lg:text-7xl font-bold text-gray-900 dark:text-white leading-tight">
+                            Hi, I'm <span class="gradient-text">Lal Hussain</span>
+                        </h1>
+                        <h2 class="text-2xl lg:text-3xl font-semibold text-gray-700 dark:text-gray-300">
+                            WordPress Developer
+                        </h2>
+                        <p class="text-xl text-gray-600 dark:text-gray-400 max-w-2xl">
+                            I build fast, SEO-friendly WordPress sites that convert visitors into customers. 
+                            Let's bring your digital vision to life with clean code and stunning design.
+                        </p>
+                    </div>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#portfolio" class="inline-flex items-center justify-center px-8 py-4 bg-primary text-white rounded-lg hover:bg-blue-600 transition-all duration-300 transform hover:scale-105 shadow-lg">
+                            <i class="fas fa-eye mr-2"></i>
+                            View My Work
+                        </a>
+                        <a href="#contact" class="inline-flex items-center justify-center px-8 py-4 border-2 border-primary text-primary rounded-lg hover:bg-primary hover:text-white transition-all duration-300">
+                            <i class="fas fa-handshake mr-2"></i>
+                            Hire Me
+                        </a>
+                    </div>
+                    
+                    <!-- Social Links -->
+                    <div class="flex space-x-6 pt-8">
+                        <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-primary transition-colors text-2xl" data-mock="true">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-primary transition-colors text-2xl" data-mock="true">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-primary transition-colors text-2xl" data-mock="true">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="relative" data-aos="fade-left">
+                    <!-- Modern workspace setup with multiple monitors showing code -->
+                    <img src="https://images.unsplash.com/photo-1581092921461-eab62e97a780?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600" 
+                         alt="Modern developer workspace with multiple monitors" 
+                         class="rounded-2xl shadow-2xl w-full h-auto">
+                    
+                    <!-- Floating Cards -->
+                    <div class="absolute -top-6 -left-6 bg-white dark:bg-gray-800 p-4 rounded-xl shadow-lg animate-pulse-soft">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                            <span class="text-sm font-medium text-gray-700 dark:text-gray-300">Available for projects</span>
+                        </div>
+                    </div>
+                    
+                    <div class="absolute -bottom-6 -right-6 bg-white dark:bg-gray-800 p-4 rounded-xl shadow-lg">
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-primary">50+</div>
+                            <div class="text-sm text-gray-600 dark:text-gray-400">Projects Completed</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: Hero Section -->
+
+    <!-- @COMPONENT: About Me Section [bio, skills, and CV download] -->
+    <section id="about" class="py-20 bg-white dark:bg-gray-800">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4">About Me</h2>
+                <p class="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+                    Passionate about creating exceptional web experiences that drive business growth
+                </p>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="space-y-6" data-aos="fade-right">
+                    <!-- Professional headshot of a web developer in modern office setting -->
+                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=600" 
+                         alt="Professional headshot of Lal Hussain" 
+                         class="rounded-2xl shadow-xl w-full max-w-md mx-auto" 
+                         data-mock="true">
+                </div>
+                
+                <div class="space-y-8" data-aos="fade-left">
+                    <div class="space-y-6">
+                        <h3 class="text-2xl font-bold text-gray-900 dark:text-white">Hi there! I'm Lal Hussain</h3>
+                        <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+                            With over 5 years of experience in WordPress development, I specialize in creating 
+                            high-performance websites that not only look stunning but also deliver exceptional user experiences. 
+                            My approach combines technical expertise with creative problem-solving to build solutions that 
+                            drive real business results.
+                        </p>
+                        <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+                            I'm passionate about clean code, modern development practices, and staying up-to-date with 
+                            the latest web technologies. Whether you need a custom theme, e-commerce solution, or 
+                            performance optimization, I'm here to help bring your vision to life.
+                        </p>
+                    </div>
+                    
+                    <!-- Skills -->
+                    <div class="space-y-4">
+                        <h4 class="text-xl font-semibold text-gray-900 dark:text-white">Core Expertise</h4>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="flex items-center space-x-3">
+                                <i class="fab fa-wordpress text-primary text-xl"></i>
+                                <span class="text-gray-700 dark:text-gray-300">WordPress</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <i class="fab fa-php text-primary text-xl"></i>
+                                <span class="text-gray-700 dark:text-gray-300">PHP</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <i class="fab fa-js-square text-primary text-xl"></i>
+                                <span class="text-gray-700 dark:text-gray-300">JavaScript</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <i class="fab fa-react text-primary text-xl"></i>
+                                <span class="text-gray-700 dark:text-gray-300">React</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <i class="fas fa-shopping-cart text-primary text-xl"></i>
+                                <span class="text-gray-700 dark:text-gray-300">WooCommerce</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <i class="fas fa-tachometer-alt text-primary text-xl"></i>
+                                <span class="text-gray-700 dark:text-gray-300">Performance</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Download CV Button -->
+                    <div class="pt-4">
+                        <a href="#" class="inline-flex items-center px-6 py-3 bg-accent text-white rounded-lg hover:bg-green-600 transition-all duration-300 transform hover:scale-105 shadow-lg" data-mock="true">
+                            <i class="fas fa-download mr-2"></i>
+                            Download CV
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: About Me Section -->
+
+    <!-- @COMPONENT: Services Section [service offerings with icons] -->
+    <section id="services" class="py-20 bg-gray-50 dark:bg-gray-900">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4">Services</h2>
+                <p class="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+                    Comprehensive WordPress solutions to power your digital presence
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1: WordPress Theme Development -->
+                <div class="service-card bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-xl flex items-center justify-center mb-6">
+                        <i class="fab fa-wordpress text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">WordPress Theme Development</h3>
+                    <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+                        Custom WordPress themes built from scratch with pixel-perfect designs, responsive layouts, 
+                        and optimized performance for any business need.
+                    </p>
+                </div>
+                
+                <!-- Service 2: WooCommerce Setup -->
+                <div class="service-card bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-shopping-cart text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">WooCommerce Setup</h3>
+                    <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+                        Complete e-commerce solutions with WooCommerce, including payment gateways, 
+                        inventory management, and conversion optimization.
+                    </p>
+                </div>
+                
+                <!-- Service 3: Speed Optimization -->
+                <div class="service-card bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-tachometer-alt text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">Speed Optimization</h3>
+                    <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+                        Boost your website performance with advanced caching, image optimization, 
+                        and code minification to achieve lightning-fast load times.
+                    </p>
+                </div>
+                
+                <!-- Service 4: Plugin Development -->
+                <div class="service-card bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300" data-aos="fade-up" data-aos-delay="400">
+                    <div class="w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-puzzle-piece text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">Plugin Development</h3>
+                    <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+                        Custom WordPress plugins tailored to your specific requirements, 
+                        extending functionality while maintaining security and performance.
+                    </p>
+                </div>
+                
+                <!-- Service 5: Site Migration & Backup -->
+                <div class="service-card bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300" data-aos="fade-up" data-aos-delay="500">
+                    <div class="w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-cloud-upload-alt text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">Site Migration & Backup</h3>
+                    <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+                        Seamless website migrations and reliable backup solutions to ensure 
+                        your data is always safe and accessible when you need it.
+                    </p>
+                </div>
+                
+                <!-- Service 6: Maintenance & Support -->
+                <div class="service-card bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300" data-aos="fade-up" data-aos-delay="600">
+                    <div class="w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-tools text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">Maintenance & Support</h3>
+                    <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+                        Ongoing website maintenance, security updates, and technical support 
+                        to keep your site running smoothly and securely.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: Services Section -->
+
+    <!-- @COMPONENT: Portfolio Section [recent projects showcase] -->
+    <section id="portfolio" class="py-20 bg-white dark:bg-gray-800">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4">Recent Projects</h2>
+                <p class="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+                    A showcase of my latest work and successful client collaborations
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="project-card bg-gray-50 dark:bg-gray-900 rounded-2xl overflow-hidden shadow-lg" data-aos="fade-up" data-aos-delay="100">
+                    <!-- Modern e-commerce website homepage with clean design -->
+                    <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=400" 
+                         alt="E-commerce website project showcase" 
+                         class="w-full h-48 object-cover">
+                    
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2" data-mock="true">Fashion Store</h3>
+                        <p class="text-gray-600 dark:text-gray-400 mb-4" data-mock="true">
+                            Custom WooCommerce store with advanced filtering, wishlist functionality, and payment integration.
+                        </p>
+                        
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">WordPress</span>
+                            <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">WooCommerce</span>
+                            <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">Elementor</span>
+                        </div>
+                        
+                        <div class="flex items-center justify-between">
+                            <a href="#" class="text-primary hover:text-blue-600 font-medium" data-mock="true">
+                                <i class="fas fa-external-link-alt mr-1"></i>
+                                Live Demo
+                            </a>
+                            <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-primary" data-mock="true">
+                                <i class="fab fa-github text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="project-card bg-gray-50 dark:bg-gray-900 rounded-2xl overflow-hidden shadow-lg" data-aos="fade-up" data-aos-delay="200">
+                    <!-- Restaurant website with food photography and booking system -->
+                    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=400" 
+                         alt="Restaurant website project showcase" 
+                         class="w-full h-48 object-cover">
+                    
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2" data-mock="true">Restaurant Chain</h3>
+                        <p class="text-gray-600 dark:text-gray-400 mb-4" data-mock="true">
+                            Multi-location restaurant website with online reservations, menu management, and delivery integration.
+                        </p>
+                        
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">WordPress</span>
+                            <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">ACF</span>
+                            <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">Custom Theme</span>
+                        </div>
+                        
+                        <div class="flex items-center justify-between">
+                            <a href="#" class="text-primary hover:text-blue-600 font-medium" data-mock="true">
+                                <i class="fas fa-external-link-alt mr-1"></i>
+                                Live Demo
+                            </a>
+                            <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-primary" data-mock="true">
+                                <i class="fab fa-github text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="project-card bg-gray-50 dark:bg-gray-900 rounded-2xl overflow-hidden shadow-lg" data-aos="fade-up" data-aos-delay="300">
+                    <!-- Corporate business website with modern design -->
+                    <img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=400" 
+                         alt="Corporate website project showcase" 
+                         class="w-full h-48 object-cover">
+                    
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2" data-mock="true">Tech Startup</h3>
+                        <p class="text-gray-600 dark:text-gray-400 mb-4" data-mock="true">
+                            Modern corporate website with custom animations, team profiles, and lead generation forms.
+                        </p>
+                        
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">WordPress</span>
+                            <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">Gutenberg</span>
+                            <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">Contact Form 7</span>
+                        </div>
+                        
+                        <div class="flex items-center justify-between">
+                            <a href="#" class="text-primary hover:text-blue-600 font-medium" data-mock="true">
+                                <i class="fas fa-external-link-alt mr-1"></i>
+                                Live Demo
+                            </a>
+                            <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-primary" data-mock="true">
+                                <i class="fab fa-github text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 4 -->
+                <div class="project-card bg-gray-50 dark:bg-gray-900 rounded-2xl overflow-hidden shadow-lg" data-aos="fade-up" data-aos-delay="400">
+                    <!-- Blog/magazine website with content management -->
+                    <img src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=400" 
+                         alt="Blog website project showcase" 
+                         class="w-full h-48 object-cover">
+                    
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2" data-mock="true">Digital Magazine</h3>
+                        <p class="text-gray-600 dark:text-gray-400 mb-4" data-mock="true">
+                            Content-rich magazine website with advanced search, author profiles, and subscription management.
+                        </p>
+                        
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">WordPress</span>
+                            <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">Custom Post Types</span>
+                            <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">Membership</span>
+                        </div>
+                        
+                        <div class="flex items-center justify-between">
+                            <a href="#" class="text-primary hover:text-blue-600 font-medium" data-mock="true">
+                                <i class="fas fa-external-link-alt mr-1"></i>
+                                Live Demo
+                            </a>
+                            <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-primary" data-mock="true">
+                                <i class="fab fa-github text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 5 -->
+                <div class="project-card bg-gray-50 dark:bg-gray-900 rounded-2xl overflow-hidden shadow-lg" data-aos="fade-up" data-aos-delay="500">
+                    <!-- Real estate website with property listings -->
+                    <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=400" 
+                         alt="Real estate website project showcase" 
+                         class="w-full h-48 object-cover">
+                    
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2" data-mock="true">Property Portal</h3>
+                        <p class="text-gray-600 dark:text-gray-400 mb-4" data-mock="true">
+                            Real estate platform with property listings, advanced filters, and agent management system.
+                        </p>
+                        
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">WordPress</span>
+                            <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">WP Real Estate</span>
+                            <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">Maps API</span>
+                        </div>
+                        
+                        <div class="flex items-center justify-between">
+                            <a href="#" class="text-primary hover:text-blue-600 font-medium" data-mock="true">
+                                <i class="fas fa-external-link-alt mr-1"></i>
+                                Live Demo
+                            </a>
+                            <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-primary" data-mock="true">
+                                <i class="fab fa-github text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 6 -->
+                <div class="project-card bg-gray-50 dark:bg-gray-900 rounded-2xl overflow-hidden shadow-lg" data-aos="fade-up" data-aos-delay="600">
+                    <!-- Educational platform with course management -->
+                    <img src="https://images.unsplash.com/photo-1501504905252-473c47e087f8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=400" 
+                         alt="Educational platform project showcase" 
+                         class="w-full h-48 object-cover">
+                    
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2" data-mock="true">Learning Platform</h3>
+                        <p class="text-gray-600 dark:text-gray-400 mb-4" data-mock="true">
+                            E-learning platform with course management, student progress tracking, and certification system.
+                        </p>
+                        
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">WordPress</span>
+                            <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">LearnDash</span>
+                            <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">BuddyPress</span>
+                        </div>
+                        
+                        <div class="flex items-center justify-between">
+                            <a href="#" class="text-primary hover:text-blue-600 font-medium" data-mock="true">
+                                <i class="fas fa-external-link-alt mr-1"></i>
+                                Live Demo
+                            </a>
+                            <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-primary" data-mock="true">
+                                <i class="fab fa-github text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- View All Projects Button -->
+            <div class="text-center mt-12" data-aos="fade-up">
+                <a href="#" class="inline-flex items-center px-8 py-4 border-2 border-primary text-primary rounded-lg hover:bg-primary hover:text-white transition-all duration-300" data-mock="true">
+                    <i class="fas fa-folder-open mr-2"></i>
+                    View All Projects
+                </a>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: Portfolio Section -->
+
+    <!-- @COMPONENT: Testimonials Section [client feedback] -->
+    <section class="py-20 bg-gray-50 dark:bg-gray-900">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4">Client Testimonials</h2>
+                <p class="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+                    What my clients say about working with me
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex items-center mb-6">
+                        <div class="flex text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-400 mb-6 italic" data-mock="true">
+                        "Lal delivered an exceptional WordPress solution for our e-commerce store. 
+                        His attention to detail and technical expertise exceeded our expectations. 
+                        The site loads incredibly fast and conversions have increased by 40%."
+                    </p>
+                    <div class="flex items-center">
+                        <!-- Professional business person headshot -->
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=100&h=100" 
+                             alt="Client testimonial photo" 
+                             class="w-12 h-12 rounded-full mr-4" 
+                             data-mock="true">
+                        <div>
+                            <h4 class="font-semibold text-gray-900 dark:text-white" data-mock="true">Sarah Johnson</h4>
+                            <p class="text-sm text-gray-600 dark:text-gray-400" data-mock="true">CEO, TechStart Inc.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex items-center mb-6">
+                        <div class="flex text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-400 mb-6 italic" data-mock="true">
+                        "Working with Lal was a game-changer for our restaurant business. 
+                        He created a beautiful, functional website that handles our online reservations seamlessly. 
+                        Professional, responsive, and highly skilled!"
+                    </p>
+                    <div class="flex items-center">
+                        <!-- Restaurant owner or manager headshot -->
+                        <img src="https://pixabay.com/get/g3334f4b45d29f2db9df82e4ec954c4f136db7b9f88090934743a8ec2cacf53d7e9f1dd7e7766c1d11e5b0ba5230ba9c139795e517e477a760d02254e22339326_1280.jpg" 
+                             alt="Client testimonial photo" 
+                             class="w-12 h-12 rounded-full mr-4" 
+                             data-mock="true">
+                        <div>
+                            <h4 class="font-semibold text-gray-900 dark:text-white" data-mock="true">Maria Rodriguez</h4>
+                            <p class="text-sm text-gray-600 dark:text-gray-400" data-mock="true">Owner, Bella Vista Restaurant</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg" data-aos="fade-up" data-aos-delay="300">
+                    <div class="flex items-center mb-6">
+                        <div class="flex text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-400 mb-6 italic" data-mock="true">
+                        "Lal transformed our outdated website into a modern, high-performing platform. 
+                        His expertise in WordPress optimization reduced our loading time by 70%. 
+                        I highly recommend his services to anyone serious about their online presence."
+                    </p>
+                    <div class="flex items-center">
+                        <!-- Marketing professional headshot -->
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=100&h=100" 
+                             alt="Client testimonial photo" 
+                             class="w-12 h-12 rounded-full mr-4" 
+                             data-mock="true">
+                        <div>
+                            <h4 class="font-semibold text-gray-900 dark:text-white" data-mock="true">David Chen</h4>
+                            <p class="text-sm text-gray-600 dark:text-gray-400" data-mock="true">Marketing Director, GrowthCo</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: Testimonials Section -->
+
+    <!-- @COMPONENT: Blog Section [latest posts] -->
+    <section class="py-20 bg-white dark:bg-gray-800">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4">Latest Blog Posts</h2>
+                <p class="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+                    Insights, tutorials, and thoughts on WordPress development
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Blog Post 1 -->
+                <article class="bg-gray-50 dark:bg-gray-900 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300" data-aos="fade-up" data-aos-delay="100">
+                    <!-- WordPress development tutorial thumbnail -->
+                    <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=300" 
+                         alt="WordPress development tutorial" 
+                         class="w-full h-48 object-cover">
+                    
+                    <div class="p-6">
+                        <div class="flex items-center text-sm text-gray-500 dark:text-gray-400 mb-3">
+                            <i class="far fa-calendar mr-2"></i>
+                            <span data-mock="true">March 15, 2024</span>
+                            <span class="mx-2">•</span>
+                            <span data-mock="true">5 min read</span>
+                        </div>
+                        
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3 hover:text-primary transition-colors" data-mock="true">
+                            <a href="#">10 WordPress Performance Tips That Actually Work</a>
+                        </h3>
+                        
+                        <p class="text-gray-600 dark:text-gray-400 mb-4" data-mock="true">
+                            Learn proven strategies to speed up your WordPress site and improve user experience with these actionable optimization techniques.
+                        </p>
+                        
+                        <div class="flex items-center justify-between">
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-2 py-1 bg-primary/10 text-primary rounded text-xs">WordPress</span>
+                                <span class="px-2 py-1 bg-primary/10 text-primary rounded text-xs">Performance</span>
+                            </div>
+                            <a href="#" class="text-primary hover:text-blue-600 font-medium" data-mock="true">
+                                Read More <i class="fas fa-arrow-right ml-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+                
+                <!-- Blog Post 2 -->
+                <article class="bg-gray-50 dark:bg-gray-900 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300" data-aos="fade-up" data-aos-delay="200">
+                    <!-- WooCommerce development guide thumbnail -->
+                    <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=300" 
+                         alt="WooCommerce development guide" 
+                         class="w-full h-48 object-cover">
+                    
+                    <div class="p-6">
+                        <div class="flex items-center text-sm text-gray-500 dark:text-gray-400 mb-3">
+                            <i class="far fa-calendar mr-2"></i>
+                            <span data-mock="true">March 10, 2024</span>
+                            <span class="mx-2">•</span>
+                            <span data-mock="true">8 min read</span>
+                        </div>
+                        
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3 hover:text-primary transition-colors" data-mock="true">
+                            <a href="#">Building Custom WooCommerce Features</a>
+                        </h3>
+                        
+                        <p class="text-gray-600 dark:text-gray-400 mb-4" data-mock="true">
+                            A comprehensive guide to extending WooCommerce functionality with custom hooks, filters, and API integrations.
+                        </p>
+                        
+                        <div class="flex items-center justify-between">
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-2 py-1 bg-primary/10 text-primary rounded text-xs">WooCommerce</span>
+                                <span class="px-2 py-1 bg-primary/10 text-primary rounded text-xs">PHP</span>
+                            </div>
+                            <a href="#" class="text-primary hover:text-blue-600 font-medium" data-mock="true">
+                                Read More <i class="fas fa-arrow-right ml-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+                
+                <!-- Blog Post 3 -->
+                <article class="bg-gray-50 dark:bg-gray-900 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300" data-aos="fade-up" data-aos-delay="300">
+                    <!-- Modern web design trends thumbnail -->
+                    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=300" 
+                         alt="Modern web design trends" 
+                         class="w-full h-48 object-cover">
+                    
+                    <div class="p-6">
+                        <div class="flex items-center text-sm text-gray-500 dark:text-gray-400 mb-3">
+                            <i class="far fa-calendar mr-2"></i>
+                            <span data-mock="true">March 5, 2024</span>
+                            <span class="mx-2">•</span>
+                            <span data-mock="true">6 min read</span>
+                        </div>
+                        
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3 hover:text-primary transition-colors" data-mock="true">
+                            <a href="#">WordPress Security Best Practices in 2024</a>
+                        </h3>
+                        
+                        <p class="text-gray-600 dark:text-gray-400 mb-4" data-mock="true">
+                            Essential security measures every WordPress site owner should implement to protect against common vulnerabilities and attacks.
+                        </p>
+                        
+                        <div class="flex items-center justify-between">
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-2 py-1 bg-primary/10 text-primary rounded text-xs">Security</span>
+                                <span class="px-2 py-1 bg-primary/10 text-primary rounded text-xs">WordPress</span>
+                            </div>
+                            <a href="#" class="text-primary hover:text-blue-600 font-medium" data-mock="true">
+                                Read More <i class="fas fa-arrow-right ml-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            
+            <!-- View All Posts Button -->
+            <div class="text-center mt-12" data-aos="fade-up">
+                <a href="#" class="inline-flex items-center px-8 py-4 border-2 border-primary text-primary rounded-lg hover:bg-primary hover:text-white transition-all duration-300" data-mock="true">
+                    <i class="fas fa-blog mr-2"></i>
+                    View All Posts
+                </a>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: Blog Section -->
+
+    <!-- @COMPONENT: Contact Section [contact form and information] -->
+    <section id="contact" class="py-20 bg-gray-50 dark:bg-gray-900">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4">Get In Touch</h2>
+                <p class="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+                    Ready to start your next project? Let's discuss how I can help bring your vision to life
+                </p>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-16">
+                <!-- Contact Information -->
+                <div class="space-y-8" data-aos="fade-right">
+                    <div>
+                        <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">Let's Connect</h3>
+                        <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-8">
+                            I'm always excited to work on new projects and collaborate with amazing people. 
+                            Whether you need a complete website overhaul or just want to optimize your existing site, 
+                            I'm here to help.
+                        </p>
+                    </div>
+                    
+                    <!-- Contact Methods -->
+                    <div class="space-y-6">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-envelope text-primary text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900 dark:text-white">Email</h4>
+                                <a href="mailto:hello@lalhussain.dev" class="text-gray-600 dark:text-gray-400 hover:text-primary transition-colors" data-mock="true">
+                                    hello@lalhussain.dev
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
+                                <i class="fab fa-whatsapp text-primary text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900 dark:text-white">WhatsApp</h4>
+                                <a href="https://wa.me/1234567890" class="text-gray-600 dark:text-gray-400 hover:text-primary transition-colors" data-mock="true">
+                                    +1 (234) 567-8900
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
+                                <i class="fab fa-linkedin text-primary text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900 dark:text-white">LinkedIn</h4>
+                                <a href="https://linkedin.com/in/lalhussain" class="text-gray-600 dark:text-gray-400 hover:text-primary transition-colors" data-mock="true">
+                                    linkedin.com/in/lalhussain
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-map-marker-alt text-primary text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900 dark:text-white">Location</h4>
+                                <span class="text-gray-600 dark:text-gray-400" data-mock="true">
+                                    San Francisco, CA
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Response Time -->
+                    <div class="bg-accent/10 p-6 rounded-xl">
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-clock text-accent text-xl"></i>
+                            <div>
+                                <h4 class="font-semibold text-gray-900 dark:text-white">Quick Response</h4>
+                                <p class="text-gray-600 dark:text-gray-400">I typically respond within 24 hours</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Contact Form -->
+                <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg" data-aos="fade-left">
+                    <form class="space-y-6" data-implementation="Add form validation and submission handling">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="firstName" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                                    First Name *
+                                </label>
+                                <input type="text" 
+                                       id="firstName" 
+                                       name="firstName" 
+                                       required
+                                       class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:text-white transition-all duration-200"
+                                       placeholder="John"
+                                       data-mock="true">
+                            </div>
+                            <div>
+                                <label for="lastName" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                                    Last Name *
+                                </label>
+                                <input type="text" 
+                                       id="lastName" 
+                                       name="lastName" 
+                                       required
+                                       class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:text-white transition-all duration-200"
+                                       placeholder="Doe"
+                                       data-mock="true">
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                                Email Address *
+                            </label>
+                            <input type="email" 
+                                   id="email" 
+                                   name="email" 
+                                   required
+                                   class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:text-white transition-all duration-200"
+                                   placeholder="john@example.com"
+                                   data-mock="true">
+                        </div>
+                        
+                        <div>
+                            <label for="projectType" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                                Project Type
+                            </label>
+                            <select id="projectType" 
+                                    name="projectType"
+                                    class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:text-white transition-all duration-200"
+                                    data-mock="true">
+                                <option value="">Select a project type</option>
+                                <option value="new-website">New Website</option>
+                                <option value="redesign">Website Redesign</option>
+                                <option value="ecommerce">E-commerce Store</option>
+                                <option value="optimization">Performance Optimization</option>
+                                <option value="maintenance">Website Maintenance</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label for="budget" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                                Budget Range
+                            </label>
+                            <select id="budget" 
+                                    name="budget"
+                                    class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:text-white transition-all duration-200"
+                                    data-mock="true">
+                                <option value="">Select budget range</option>
+                                <option value="under-5k">Under $5,000</option>
+                                <option value="5k-10k">$5,000 - $10,000</option>
+                                <option value="10k-25k">$10,000 - $25,000</option>
+                                <option value="25k-plus">$25,000+</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                                Project Details *
+                            </label>
+                            <textarea id="message" 
+                                      name="message" 
+                                      rows="5" 
+                                      required
+                                      class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:text-white transition-all duration-200 resize-vertical"
+                                      placeholder="Tell me about your project, goals, and any specific requirements..."
+                                      data-mock="true"></textarea>
+                        </div>
+                        
+                        <button type="submit" 
+                                class="w-full bg-primary text-white py-4 px-6 rounded-lg hover:bg-blue-600 transition-all duration-300 transform hover:scale-105 shadow-lg font-medium">
+                            <i class="fas fa-paper-plane mr-2"></i>
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: Contact Section -->
+
+    <!-- @COMPONENT: Footer [quick links and social media] -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+                <!-- Brand -->
+                <div class="space-y-4">
+                    <div class="text-2xl font-bold gradient-text">
+                        LH.dev
+                    </div>
+                    <p class="text-gray-400 leading-relaxed" data-mock="true">
+                        Creating exceptional WordPress experiences that drive business growth and user engagement.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-primary transition-colors text-xl" data-mock="true">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-primary transition-colors text-xl" data-mock="true">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-primary transition-colors text-xl" data-mock="true">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-primary transition-colors text-xl" data-mock="true">
+                            <i class="fab fa-dribbble"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-400 hover:text-primary transition-colors">Home</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-primary transition-colors">About</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-primary transition-colors">Services</a></li>
+                        <li><a href="#portfolio" class="text-gray-400 hover:text-primary transition-colors">Portfolio</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-primary transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Services -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Services</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-primary transition-colors" data-mock="true">WordPress Development</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-primary transition-colors" data-mock="true">WooCommerce Setup</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-primary transition-colors" data-mock="true">Performance Optimization</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-primary transition-colors" data-mock="true">Custom Plugins</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-primary transition-colors" data-mock="true">Website Maintenance</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact Info -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Get in Touch</h3>
+                    <div class="space-y-3">
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-envelope text-primary"></i>
+                            <a href="mailto:hello@lalhussain.dev" class="text-gray-400 hover:text-primary transition-colors" data-mock="true">
+                                hello@lalhussain.dev
+                            </a>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fab fa-whatsapp text-primary"></i>
+                            <a href="https://wa.me/1234567890" class="text-gray-400 hover:text-primary transition-colors" data-mock="true">
+                                +1 (234) 567-8900
+                            </a>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-map-marker-alt text-primary"></i>
+                            <span class="text-gray-400" data-mock="true">San Francisco, CA</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Copyright -->
+            <div class="border-t border-gray-800 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-400 text-sm" data-mock="true">
+                        © 2024 Lal Hussain. All rights reserved.
+                    </p>
+                    <div class="flex space-x-6 mt-4 md:mt-0">
+                        <a href="#" class="text-gray-400 hover:text-primary transition-colors text-sm" data-mock="true">Privacy Policy</a>
+                        <a href="#" class="text-gray-400 hover:text-primary transition-colors text-sm" data-mock="true">Terms of Service</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- @END_COMPONENT: Footer -->
+
+    <!-- AOS Animation Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <script>
+        // Initialize AOS animations
+        AOS.init({
+            duration: 800,
+            easing: 'ease-out-cubic',
+            once: true,
+            offset: 100
+        });
+
+        // Dark mode toggle functionality
+        (function() {
+            const darkModeToggle = document.getElementById('darkModeToggle');
+            const html = document.documentElement;
+            
+            // Check for saved dark mode preference or default to light mode
+            const currentMode = localStorage.getItem('darkMode') || 'light';
+            
+            if (currentMode === 'dark') {
+                html.classList.add('dark');
+            }
+            
+            darkModeToggle.addEventListener('click', () => {
+                html.classList.toggle('dark');
+                
+                // Save preference to localStorage
+                const isDark = html.classList.contains('dark');
+                localStorage.setItem('darkMode', isDark ? 'dark' : 'light');
+            });
+        })();
+
+        // Mobile menu toggle functionality
+        (function() {
+            const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+            const mobileMenu = document.getElementById('mobileMenu');
+            
+            mobileMenuToggle.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+                
+                // Toggle hamburger/close icon
+                const icon = mobileMenuToggle.querySelector('i');
+                if (mobileMenu.classList.contains('hidden')) {
+                    icon.className = 'fas fa-bars text-gray-700 dark:text-gray-300';
+                } else {
+                    icon.className = 'fas fa-times text-gray-700 dark:text-gray-300';
+                }
+            });
+            
+            // Close mobile menu when clicking on a link
+            const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+            mobileMenuLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                    const icon = mobileMenuToggle.querySelector('i');
+                    icon.className = 'fas fa-bars text-gray-700 dark:text-gray-300';
+                });
+            });
+        })();
+
+        // Smooth scrolling for anchor links
+        (function() {
+            const links = document.querySelectorAll('a[href^="#"]');
+            
+            links.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    
+                    const targetId = link.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        const offsetTop = targetElement.offsetTop - 80; // Account for fixed header
+                        
+                        window.scrollTo({
+                            top: offsetTop,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        })();
+
+        // Header background on scroll
+        (function() {
+            const header = document.querySelector('header');
+            
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 100) {
+                    header.classList.add('bg-white/90', 'dark:bg-gray-900/90');
+                } else {
+                    header.classList.remove('bg-white/90', 'dark:bg-gray-900/90');
+                }
+            });
+        })();
+
+        // Form submission handling (placeholder)
+        (function() {
+            const contactForm = document.querySelector('#contact form');
+            
+            if (contactForm) {
+                contactForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    
+                    // TODO: Implement form submission logic
+                    // This would typically involve sending data to a server endpoint
+                    // For now, just show a success message
+                    
+                    const submitButton = contactForm.querySelector('button[type="submit"]');
+                    const originalText = submitButton.innerHTML;
+                    
+                    submitButton.innerHTML = '<i class="fas fa-check mr-2"></i>Message Sent!';
+                    submitButton.disabled = true;
+                    submitButton.classList.add('bg-green-500', 'hover:bg-green-600');
+                    submitButton.classList.remove('bg-primary', 'hover:bg-blue-600');
+                    
+                    // Reset form after 3 seconds
+                    setTimeout(() => {
+                        contactForm.reset();
+                        submitButton.innerHTML = originalText;
+                        submitButton.disabled = false;
+                        submitButton.classList.remove('bg-green-500', 'hover:bg-green-600');
+                        submitButton.classList.add('bg-primary', 'hover:bg-blue-600');
+                    }, 3000);
+                });
+            }
+        })();
+
+        // Add loading state for project links
+        (function() {
+            const projectLinks = document.querySelectorAll('.project-card a[href="#"]');
+            
+            projectLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    
+                    // TODO: Implement project detail loading
+                    console.log('Loading project details...');
+                });
+            });
+        })();
+    </script>
+</body>
+</html>

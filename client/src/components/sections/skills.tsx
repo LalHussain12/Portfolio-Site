@@ -7,11 +7,9 @@ const technicalSkills = [
   { name: "WordPress", level: 95, icon: SiWordpress, color: "text-blue-600" },
   { name: "PHP", level: 90, icon: SiPhp, color: "text-purple-600" },
   { name: "JavaScript", level: 88, icon: SiJavascript, color: "text-yellow-500" },
-  { name: "React", level: 85, icon: SiReact, color: "text-cyan-500" },
   { name: "MySQL", level: 82, icon: SiMysql, color: "text-orange-600" },
   { name: "HTML5", level: 95, icon: SiHtml5, color: "text-orange-500" },
-  { name: "CSS3", level: 90, icon: SiCss3, color: "text-blue-500" },
-  { name: "Node.js", level: 80, icon: SiNodedotjs, color: "text-green-600" },
+  { name: "CSS3", level: 95, icon: SiCss3, color: "text-blue-500" },
 ];
 
 const specializations = [

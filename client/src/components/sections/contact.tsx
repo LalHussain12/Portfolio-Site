@@ -84,8 +84,8 @@ export default function Contact() {
                 </div>
                 <div>
                   <h4 className="font-semibold text-foreground">Email</h4>
-                  <a href="mailto:hello@lalhussain.dev" className="text-muted-foreground hover:text-primary transition-colors">
-                    hello@lalhussain.dev
+                  <a href="mailto:lalhussainkeerio12@gmail.com" className="text-muted-foreground hover:text-primary transition-colors">
+                    lalhussainkeerio12@gmail.com
                   </a>
                 </div>
               </div>
@@ -96,8 +96,8 @@ export default function Contact() {
                 </div>
                 <div>
                   <h4 className="font-semibold text-foreground">WhatsApp</h4>
-                  <a href="https://wa.me/1234567890" className="text-muted-foreground hover:text-green-600 transition-colors">
-                    +1 (234) 567-8900
+                  <a href="https://wa.me/+923087354393" className="text-muted-foreground hover:text-green-600 transition-colors">
+                    +923087354393
                   </a>
                 </div>
               </div>
@@ -108,7 +108,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <h4 className="font-semibold text-foreground">LinkedIn</h4>
-                  <a href="https://linkedin.com/in/lalhussain" className="text-muted-foreground hover:text-blue-600 transition-colors">
+                  <a href="https://www.linkedin.com/in/lal-hussain-keerio-3717652a9/" className="text-muted-foreground hover:text-blue-600 transition-colors">
                     linkedin.com/in/lalhussain
                   </a>
                 </div>
@@ -121,7 +121,7 @@ export default function Contact() {
                 <div>
                   <h4 className="font-semibold text-foreground">Location</h4>
                   <span className="text-muted-foreground">
-                    San Francisco, CA (Available Globally)
+                    Karachi Sindh Pakistan (Available Globally)
                   </span>
                 </div>
               </div>

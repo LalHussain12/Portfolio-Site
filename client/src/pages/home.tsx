@@ -27,11 +27,9 @@ export default function Home() {
         <About />
         <Skills />
         <Services />
-        <Process />
+        <Process /> 
         <Portfolio />
-        <Testimonials />
         <Pricing />
-        <Blog />
         <FAQ />
         <Contact />
       </main>

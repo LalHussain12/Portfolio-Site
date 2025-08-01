@@ -1,4 +1,4 @@
-import { Github, Linkedin, Twitter, Dribbble, Mail, Phone, MapPin } from "lucide-react";
+import { Github, Linkedin, Twitter, Dribbble, Mail, Phone, MapPin, Facebook, Instagram } from "lucide-react";
 
 export default function Footer() {
   const scrollToSection = (sectionId: string) => {
@@ -35,7 +35,10 @@ export default function Footer() {
                 <Twitter className="h-5 w-5" />
               </a>
               <a href="#" className="text-gray-400 hover:text-primary transition-colors text-xl">
-                <Dribbble className="h-5 w-5" />
+                <Facebook className="h-5 w-5" />
+              </a>
+              <a href="#" className="text-gray-400 hover:text-primary transition-colors text-xl">
+                <Instagram className="h-5 w-5" />
               </a>
             </div>
           </div>
@@ -113,19 +116,19 @@ export default function Footer() {
             <div className="space-y-3">
               <div className="flex items-center space-x-3">
                 <Mail className="h-4 w-4 text-primary" />
-                <a href="mailto:hello@lalhussain.dev" className="text-gray-400 hover:text-primary transition-colors">
-                  hello@lalhussain.dev
+                <a href="mailto:lalhussainkeerio12@gmail.com" className="text-gray-400 hover:text-primary transition-colors">
+                  lalhussainkeerio12@gmail.com 
                 </a>
               </div>
               <div className="flex items-center space-x-3">
                 <Phone className="h-4 w-4 text-primary" />
-                <a href="https://wa.me/1234567890" className="text-gray-400 hover:text-primary transition-colors">
-                  +1 (234) 567-8900
+                <a href="https://wa.me/+92087354393" className="text-gray-400 hover:text-primary transition-colors">
+                  +92087354393
                 </a>
               </div>
               <div className="flex items-center space-x-3">
                 <MapPin className="h-4 w-4 text-primary" />
-                <span className="text-gray-400">San Francisco, CA</span>
+                <span className="text-gray-400">Karachi Sindh Pakistan</span>
               </div>
             </div>
           </div>
@@ -135,7 +138,7 @@ export default function Footer() {
         <div className="border-t border-gray-800 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-400 text-sm">
-              © 2024 Lal Hussain. All rights reserved.
+              © 2025 Lal Hussain. All rights reserved.
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
               <a href="#" className="text-gray-400 hover:text-primary transition-colors text-sm">
