@@ -45,7 +45,7 @@ export default function Header() {
           </div>
           
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-6">
+          <div className="hidden lg:flex items-center space-x-4">
             <button 
               onClick={() => scrollToSection("home")}
               className="text-foreground/80 hover:text-primary transition-colors text-sm"
@@ -117,8 +117,8 @@ export default function Header() {
         
         {/* Mobile Navigation Menu */}
         {isMenuOpen && (
-          <div className="md:hidden mt-4 pb-4 border-t border-border">
-            <div className="flex flex-col space-y-4 pt-4">
+          <div className="lg:hidden mt-4 pb-4 border-t border-border">
+            <div className="grid grid-cols-2 gap-4 pt-4">
               <button 
                 onClick={() => scrollToSection("home")}
                 className="text-left text-foreground/80 hover:text-primary transition-colors"

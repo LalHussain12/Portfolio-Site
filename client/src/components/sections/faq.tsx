@@ -52,7 +52,7 @@ export default function FAQ() {
   };
 
   return (
-    <section className="py-20 bg-muted/30">
+    <section id="faq" className="py-20 bg-muted/30">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16" data-aos="fade-up">
           <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-full mb-6">

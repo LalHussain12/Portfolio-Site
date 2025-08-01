@@ -53,7 +53,7 @@ const processSteps = [
 
 export default function Process() {
   return (
-    <section className="py-20 bg-card">
+    <section id="process" className="py-20 bg-card">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16" data-aos="fade-up">
           <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-4">My Development Process</h2>

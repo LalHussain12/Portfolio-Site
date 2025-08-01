@@ -55,7 +55,7 @@ const specializations = [
 
 export default function Skills() {
   return (
-    <section className="py-20 bg-muted/30">
+    <section id="skills" className="py-20 bg-muted/30">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16" data-aos="fade-up">
           <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-4">Skills & Expertise</h2>
